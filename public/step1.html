@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Personal Info</title>
+  </head>
+  <body class="bg-blue-100 flex items-center justify-center min-h-screen">
+    <div
+      class="bg-white rounded-lg shadow-lg p-6 p-6 w-[90%] max-w-6xl grid grid-cols-1 grid-cols-3 gap-6"
+    >
+      <!-- Left Side: Image -->
+      <div class="rounded-lg col-span-1 flex flex-col items-start relative">
+        <img
+          src="../assets/images/bg-sidebar-desktop.svg"
+          alt="Image"
+          class="object-fill rounded-lg"
+        />
+
+        <div class="">
+          <ul class="absolute top-2 left-12 space-y-4">
+            <li class="flex items-center gap-4 my-7">
+              <div
+                class="bg-[#bfe2fd] w-8 h-8 rounded-full flex justify-center items-center min-w-[32px]"
+              >
+                1
+              </div>
+              <div class="w-[120px]">
+                <p class="text-indigo-200 font-thin text-xs">STEP 1</p>
+                <p class="font-semibold text-white uppercase text-sm">
+                  Your info
+                </p>
+              </div>
+            </li>
+            <li class="flex items-center gap-4 my-7">
+              <div
+                class="text-white border h-8 w-8 rounded-full flex justify-center items-center min-w-[32px]"
+              >
+                2
+              </div>
+              <div class="w-[120px]">
+                <p class="text-indigo-200 font-thin text-xs">STEP 2</p>
+                <p class="font-semibold text-white uppercase text-sm">
+                  Select plan
+                </p>
+              </div>
+            </li>
+            <li class="flex items-center gap-4 my-7">
+              <div
+                class="text-white border h-8 w-8 rounded-full flex justify-center items-center min-w-[32px]"
+              >
+                3
+              </div>
+              <div class="w-[120px]">
+                <p class="text-indigo-200 font-thin text-xs">STEP 3</p>
+                <p class="font-semibold text-white uppercase text-sm">
+                  Add-ons
+                </p>
+              </div>
+            </li>
+            <li class="flex items-center gap-4 my-7">
+              <div
+                class="text-white border h-8 w-8 rounded-full flex justify-center items-center min-w-[32px]"
+              >
+                4
+              </div>
+              <div class="w-[120px]">
+                <p class="text-indigo-200 font-thin text-xs">STEP 4</p>
+                <p class="font-semibold text-white uppercase text-sm">
+                  Summary
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- Circle -->
+      </div>
+
+      <!-- Right Side: Content -->
+      <div class="col-span-2 ml-16 mt-10">
+        <h2 class="text-4xl font-bold text-gray-800 mb-2">Personal Info</h2>
+        <p class="text-slate-400">
+          Please provide your name, email address, and phone number.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

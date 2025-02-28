@@ -14,7 +14,7 @@ The designs were created to the following widths:
 - Marine blue: hsl(213, 96%, 18%)
 - Purplish blue: hsl(243, 100%, 62%)
 - Pastel blue: hsl(228, 100%, 84%)
-- Light blue: hsl(206, 94%, 87%)
+- Light blue: hsl(206, 93.90%, 87.10%)
 - Strawberry red: hsl(354, 84%, 57%)
 
 ### Neutral
