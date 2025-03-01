@@ -6,7 +6,7 @@
 
 :root {
   --marine-blue: hsl(213, 96%, 18%);
-  --purplish-blue: hsl(243, 100%, 62%);
+  --purplish-blue: rgb(71, 61, 255);
   --pastel-blue: hsl(228, 100%, 83.9%);
   --light-blue: hsl(206, 93.9%, 87.1%);
   --strawberry-red: hsl(354, 84%, 57%);

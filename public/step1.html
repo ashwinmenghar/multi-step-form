@@ -143,7 +143,7 @@
               </div>
             </div>
           </section>
-          <section>
+          <section class="hidden">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">
               Select your plan
             </h2>
@@ -234,6 +234,144 @@
                 >
               </label>
             </div>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Pick add-ons</h2>
+            <p class="text-slate-400">
+              Add-ons help enhance your gaming experience.
+            </p>
+
+            <!-- 1st add-ons -->
+            <label
+              class="mt-5 border border-gray-300 rounded-lg flex gap-4 justify-between items-center px-4 py-3 cursor-pointer checked:border-red-700 hover:border-blue-600 transition"
+              for="online-service"
+            >
+              <input
+                id="online-service"
+                type="checkbox"
+                value=""
+                class="peer hidden"
+                checked
+              />
+
+              <!-- Custom Checkbox -->
+              <div
+                class="w-5 h-5 flex items-center justify-center border-1 border-gray-300 rounded-md peer-checked:bg-indigo-600 peer-checked:border-indigo-600"
+              >
+                <!-- Checkmark (only visible when checked) -->
+                <svg
+                  class="_checkmark_u47sp_35"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="9"
+                  viewBox="0 0 12 9"
+                >
+                  <path
+                    fill="none"
+                    stroke="#FFF"
+                    stroke-width="2"
+                    d="m1 4 3.433 3.433L10.866 1"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex flex-1 flex-col">
+                <p class="font-medium">Online service</p>
+                <p class="text-gray-400 text-sm mt-1">
+                  Access to multiplayer games
+                </p>
+              </div>
+
+              <span class="text-blue-700 font-normal text-sm">+$10/yr</span>
+            </label>
+
+            <!-- 2nd add-ons -->
+            <label
+              class="mt-5 border border-gray-300 rounded-lg flex gap-4 justify-between items-center px-4 py-3 cursor-pointer checked:border-red-700 hover:border-blue-600 transition"
+              for="larger-storage"
+            >
+              <input
+                id="larger-storage"
+                type="checkbox"
+                value=""
+                class="peer hidden"
+                checked
+              />
+
+              <!-- Custom Checkbox -->
+              <div
+                class="w-5 h-5 flex items-center justify-center border-1 border-gray-300 rounded-md peer-checked:bg-indigo-600 peer-checked:border-indigo-600"
+              >
+                <!-- Checkmark (only visible when checked) -->
+                <svg
+                  class="_checkmark_u47sp_35"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="9"
+                  viewBox="0 0 12 9"
+                >
+                  <path
+                    fill="none"
+                    stroke="#FFF"
+                    stroke-width="2"
+                    d="m1 4 3.433 3.433L10.866 1"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex flex-1 flex-col">
+                <p class="font-medium">Larger storage</p>
+                <p class="text-gray-400 text-sm mt-1">
+                  Extra 1TB of cloud save
+                </p>
+              </div>
+
+              <span class="text-blue-700 font-normal text-sm">+$20/yr</span>
+            </label>
+            <!-- 3rd add-ons -->
+            <label
+              class="mt-5 border border-gray-300 rounded-lg flex gap-4 justify-between items-center px-4 py-3 cursor-pointer checked:border-red-700 hover:border-blue-600 transition"
+              for="customizable-profile"
+            >
+              <input
+                id="customizable-profile"
+                type="checkbox"
+                value=""
+                class="peer hidden"
+                checked
+              />
+
+              <!-- Custom Checkbox -->
+              <div
+                class="w-5 h-5 flex items-center justify-center border-1 border-gray-300 rounded-md peer-checked:bg-indigo-600 peer-checked:border-indigo-600"
+              >
+                <!-- Checkmark (only visible when checked) -->
+                <svg
+                  class="_checkmark_u47sp_35"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="9"
+                  viewBox="0 0 12 9"
+                >
+                  <path
+                    fill="none"
+                    stroke="#FFF"
+                    stroke-width="2"
+                    d="m1 4 3.433 3.433L10.866 1"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex flex-1 flex-col">
+                <p class="font-medium">Customizable profile</p>
+                <p class="text-gray-400 text-sm mt-1">
+                  Custom theme on your profile
+                </p>
+              </div>
+
+              <span class="text-blue-700 font-normal text-sm">+$20/yr</span>
+            </label>
           </section>
         </form>
 
