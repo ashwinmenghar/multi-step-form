@@ -77,6 +77,7 @@
       <!-- Right Column: Personal Info Form -->
       <div class="flex-1 flex flex-col justify-between px-20 py-10">
         <form action="" class="flex flex-col h-full">
+          <!-- Step 1 -->
           <section class="hidden">
             <h2 class="text-4xl font-bold text-gray-800 mb-2">Personal Info</h2>
             <p class="text-slate-400">
@@ -143,6 +144,8 @@
               </div>
             </div>
           </section>
+
+          <!-- Step 2 -->
           <section class="hidden">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">
               Select your plan
@@ -236,7 +239,8 @@
             </div>
           </section>
 
-          <section>
+          <!-- Step 3 -->
+          <section class="hidden">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Pick add-ons</h2>
             <p class="text-slate-400">
               Add-ons help enhance your gaming experience.
@@ -373,10 +377,56 @@
               <span class="text-blue-700 font-normal text-sm">+$20/yr</span>
             </label>
           </section>
+
+          <!-- Step 4 -->
+          <section class="hidden">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Finishing up</h2>
+            <p class="text-slate-400">
+              Double-check everything looks OK before confirming.
+            </p>
+
+            <div class="bg-slate-50 rounded-lg p-5 mt-10">
+              <div class="flex justify-between items-center">
+                <div>
+                  <p class="font-medium">
+                    Arcade
+                    <span>(Monthly)</span>
+                  </p>
+                  <button
+                    class="underline cursor-pointer text-gray-400 text-sm hover:text-blue-700"
+                  >
+                    Change
+                  </button>
+                </div>
+                <span class="font-semibold">$9/mo</span>
+              </div>
+
+              <hr class="my-4 text-gray-200" />
+              <ul class="flex justify-between flex-col gap-3">
+                <li class="flex justify-between">
+                  <p class="text-gray-400 text-sm">Online service</p>
+                  <span class="text-sm">+$1/mo</span>
+                </li>
+                <li class="flex justify-between">
+                  <p class="text-gray-400 text-sm">Larger storage</p>
+                  <span class="text-sm">+$2/mo</span>
+                </li>
+                <li class="flex justify-between">
+                  <p class="text-gray-400 text-sm">Customizable profile</p>
+                  <span class="text-sm">+$2/mo</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-2 p-5 text-sm text-gray-400 flex justify-between">
+              <p>Total (per month)</p>
+              <p class="text-blue-600 text-xl font-semibold">$14/mo</p>
+            </div>
+          </section>
         </form>
 
         <!-- Button Wrapper -->
-        <div class="flex justify-between w-full mt-auto">
+        <div class="flex justify-between w-full mt-auto hidden">
           <button
             type="button"
             class="px-4 py-3 text-gray-400 hover:text-[#02295a] rounded-md font-semibold cursor-pointer"
@@ -387,7 +437,7 @@
           <!-- Next Step Button -->
           <button
             type="submit"
-            class="bg-[#02295a] px-4 py-3 text-white rounded-md font-semibold cursor-pointer"
+            class="bg-[#02295a] px-4 py-3 text-white rounded-md font-semibold cursor-pointer hover:opacity-70"
           >
             Next Step
           </button>
