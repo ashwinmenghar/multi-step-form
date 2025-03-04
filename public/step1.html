@@ -7,16 +7,16 @@
     <title>Personal Info</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-blue-100 flex items-center justify-center min-h-screen">
+  <body class="bg-slate-100 flex items-center justify-center min-h-screen">
     <div class="bg-white rounded-lg shadow-lg p-3 w-[55%] flex">
       <!-- Left Column: Image & Steps -->
-      <div class="relative rounded-lg flex flex-col items-start w-fit">
+      <div class="relative rounded-lg flex flex-col items-start">
         <img
           src="../assets/images/bg-sidebar-desktop.svg"
           alt="Image"
           class="object-fill rounded-lg"
         />
-        <div class="absolute top-2 left-12 space-y-4">
+        <aside class="absolute top-2 left-12 space-y-4">
           <ul class="step-block">
             <li class="flex items-center gap-4 my-7">
               <div
@@ -71,11 +71,11 @@
               </div>
             </li>
           </ul>
-        </div>
+        </aside>
       </div>
 
       <!-- Right Column: Personal Info Form -->
-      <div class="flex-1 flex flex-col justify-between px-20 py-10">
+      <main class="flex-1 flex flex-col justify-between px-20 py-10">
         <div class="flex flex-col h-full">
           <!-- Step 1 -->
           <section class="personal-info">
@@ -264,7 +264,12 @@
               class="mt-5 border border-gray-300 rounded-lg flex gap-4 justify-between items-center px-4 py-3 cursor-pointer checked:border-red-700 hover:border-blue-600 transition"
               for="online-service"
             >
-              <input id="online-service" type="checkbox" class="peer hidden" />
+              <input
+                id="online-service"
+                type="checkbox"
+                class="peer hidden selectedAddOn"
+                value="1"
+              />
 
               <!-- Custom Checkbox -->
               <div
@@ -294,7 +299,11 @@
                 </p>
               </div>
 
-              <span class="text-blue-700 font-normal text-sm">+$10/yr</span>
+              <span
+                class="text-blue-700 font-normal text-sm add-ons-price"
+                data-addons-price="1"
+                >+$1/mo</span
+              >
             </label>
 
             <!-- 2nd add-ons -->
@@ -305,8 +314,8 @@
               <input
                 id="larger-storage"
                 type="checkbox"
-                value=""
-                class="peer hidden"
+                value="2"
+                class="peer hidden selectedAddOn"
               />
 
               <!-- Custom Checkbox -->
@@ -337,7 +346,11 @@
                 </p>
               </div>
 
-              <span class="text-blue-700 font-normal text-sm">+$20/yr</span>
+              <span
+                class="text-blue-700 font-normal text-sm add-ons-price"
+                data-addons-price="2"
+                >+$2/mo</span
+              >
             </label>
             <!-- 3rd add-ons -->
             <label
@@ -347,8 +360,8 @@
               <input
                 id="customizable-profile"
                 type="checkbox"
-                value=""
-                class="peer hidden"
+                value="3"
+                class="peer hidden selectedAddOn"
               />
 
               <!-- Custom Checkbox -->
@@ -379,12 +392,16 @@
                 </p>
               </div>
 
-              <span class="text-blue-700 font-normal text-sm">+$20/yr</span>
+              <span
+                class="text-blue-700 font-normal text-sm add-ons-price"
+                data-addons-price="2"
+                >+$2/mo</span
+              >
             </label>
           </section>
 
           <!-- Step 4 -->
-          <section class="hidden">
+          <section class="confirm-page hidden">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Finishing up</h2>
             <p class="text-slate-400">
               Double-check everything looks OK before confirming.
@@ -393,51 +410,38 @@
             <div class="bg-slate-50 rounded-lg p-5 mt-10">
               <div class="flex justify-between items-center">
                 <div>
-                  <p class="font-medium">
-                    Arcade
-                    <span>(Monthly)</span>
-                  </p>
+                  <p class="font-medium plan-name"></p>
                   <button
                     class="underline cursor-pointer text-gray-400 text-sm hover:text-blue-700"
+                    id="change-plan"
                   >
                     Change
                   </button>
                 </div>
-                <span class="font-semibold">$9/mo</span>
+                <span class="font-semibold plan-price">$9/mo</span>
               </div>
 
-              <hr class="my-4 text-gray-200" />
-              <ul class="flex justify-between flex-col gap-3">
-                <li class="flex justify-between">
-                  <p class="text-gray-400 text-sm">Online service</p>
-                  <span class="text-sm">+$1/mo</span>
-                </li>
-                <li class="flex justify-between">
-                  <p class="text-gray-400 text-sm">Larger storage</p>
-                  <span class="text-sm">+$2/mo</span>
-                </li>
-                <li class="flex justify-between">
-                  <p class="text-gray-400 text-sm">Customizable profile</p>
-                  <span class="text-sm">+$2/mo</span>
-                </li>
-              </ul>
+              <hr class="my-4 text-gray-200 hidden" />
+              <ul
+                class="flex justify-between flex-col gap-3 add-ons-list hidden"
+              ></ul>
             </div>
 
-            <div class="mt-2 p-5 text-sm text-gray-400 flex justify-between">
-              <p>Total (per month)</p>
-              <p class="text-blue-600 text-xl font-semibold">$14/mo</p>
-            </div>
+            <div
+              class="mt-2 p-5 text-sm text-gray-400 flex justify-between total-price"
+            ></div>
           </section>
 
           <!-- Final section -->
           <section
-            class="hidden h-full flex justify-center items-center flex-col"
+            class="final-section hidden h-full flex justify-center items-center flex-col"
           >
             <img src="../assets/images/icon-thank-you.svg" alt="icon" />
 
             <h1 class="text-center text-black text-3xl font-semibold mt-10">
               Thank you!
             </h1>
+
             <p class="text-gray-400 text-center mt-2">
               Thanks for confirming your subscription! We hope you have fun
               using our platform. If you ever need support, please feel free to
@@ -460,12 +464,12 @@
           <button
             data-step="1"
             id="nextBtn"
-            class="bg-[#02295a] px-4 py-3 text-white rounded-md font-semibold cursor-pointer hover:opacity-70"
+            class="bg-[#02295a] px-6 py-3 text-white rounded-md font-semibold cursor-pointer hover:opacity-70"
           >
             Next Step
           </button>
         </div>
-      </div>
+      </main>
     </div>
 
     <script src="app.js"></script>
