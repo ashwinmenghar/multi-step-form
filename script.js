@@ -5,6 +5,7 @@ const sections = document.querySelectorAll("section");
 const stepIndicators = document.querySelectorAll(".step-block li");
 const personalInfoSection = document.querySelector(".personal-info");
 const confirmPage = document.querySelector(".confirm-page");
+const selectPlanSection = document.querySelector(".select-plans");
 
 // Store steps
 let currentStep = 0;
@@ -176,6 +177,7 @@ const updateConfirmPage = () => {
   planPrice.innerText = `$${formData.plan.price}/${
     formData.plan.planType === "Yearly" ? "yr" : "mo"
   }`;
+
   addOnsList.innerHTML = "";
 
   if (Object.values(formData.addOns).length > 0) {
@@ -227,7 +229,9 @@ const updateTotalPrice = () => {
   totalPriceContainer.innerHTML = ""; // Clear previous content
 
   const totalBlock = document.createElement("p");
-  totalBlock.innerText = `Total (per ${formData.plan.planType.toLowerCase()})`;
+  totalBlock.innerText = `Total (per ${
+    formData.plan.planType == "Yearly" ? "year" : "month"
+  })`;
 
   const priceBlock = document.createElement("p");
   priceBlock.className = "text-blue-600 text-xl font-semibold";
@@ -239,28 +243,28 @@ const updateTotalPrice = () => {
 };
 
 // Handle plan selection and pricing
-document
-  .getElementById("monthly-yearly-switch")
-  .addEventListener("change", (e) => {
-    let isYearly = e.target.checked;
-    formData.plan.planType = isYearly ? "Yearly" : "Monthly";
 
-    let selectedPlanInput = document.querySelector(
-      "input[name='plan']:checked"
-    );
+selectPlanSection.addEventListener("change", (e) => {
+  let isYearly = document.getElementById("monthly-yearly-switch").checked;
+  formData.plan.planType = isYearly ? "Yearly" : "Monthly";
 
-    if (selectedPlanInput) {
-      formData.plan.name = selectedPlanInput.value;
-      formData.plan.price = isYearly
-        ? selectedPlanInput.dataset.price * 10
-        : +selectedPlanInput.dataset.price;
-    }
+  // Toggle between monthly and yearly prices
+  if (e.target.id == "monthly-yearly-switch") {
+    let freeMonthsList = document.querySelectorAll(".extra-free-months");
 
-    document.querySelectorAll(".extra-free-months").forEach((el) => {
-      el.classList.toggle("hidden", !isYearly);
-      el.previousElementSibling.innerText = isYearly
-        ? `$${el.previousElementSibling.dataset.yearlyPrice}/yr`
-        : `$${el.previousElementSibling.dataset.yearlyPrice / 10}/mo`;
+    freeMonthsList.forEach((freeMonth) => {
+      let yearlyPrice = freeMonth.previousElementSibling.dataset.yearlyPrice;
+      let setNewPrice = "";
+
+      if (isYearly) {
+        setNewPrice = `$${yearlyPrice}/yr`;
+        freeMonth.classList.remove("hidden"); // Show "2 months free"
+      } else {
+        setNewPrice = `$${yearlyPrice / 10}/mo`;
+        freeMonth.classList.add("hidden"); // Hide "2 months free"
+      }
+
+      freeMonth.previousElementSibling.innerText = setNewPrice;
     });
 
     document.querySelectorAll(".add-ons-price").forEach((el) => {
@@ -268,7 +272,21 @@ document
         isYearly ? el.dataset.addonsPrice * 10 : el.dataset.addonsPrice
       }/${isYearly ? "yr" : "mo"}`;
     });
-  });
+
+    formData.plan.price = isYearly
+      ? formData.plan.price * 10
+      : formData.plan.price / 10;
+  }
+
+  if (e.target.name === "plan") {
+    let selectedPlan = e.target.value;
+    let planPrice = Number(e.target.dataset.price);
+
+    // Store selected plan details
+    formData.plan.name = selectedPlan;
+    formData.plan.price = isYearly ? planPrice * 10 : planPrice;
+  }
+});
 
 // Handle changing plan
 changePlan.addEventListener("click", () => changeStep(1));
